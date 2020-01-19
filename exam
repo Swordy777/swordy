@@ -1,0 +1,69 @@
+const int SIZE = 100;
+int elementy_pod_diag(int massiv[SIZE][SIZE], int razmer)
+{
+	int sum = 0;
+	int i, j;
+	int c = 0;
+	while (c < razmer)
+	{
+		for(i = 0; i < razmer; i++)
+		{
+			for(j = 0; j < razmer; j++)
+			{
+				if (i > c && j == c)
+					sum += massiv[i][j];
+			}
+
+		}
+	 c++;
+	}
+	return sum;
+}
+
+int main()
+{
+	int x[SIZE][SIZE], y[SIZE][SIZE], z[SIZE][SIZE];
+	int i, j, k, n, checker=0, razmer[3];
+
+	for (k = 0; k < 3; k++)
+	{
+		cout << "Vvedite razmery massiva " << k << "(<= 100): ";
+		do
+		{
+			cin >> razmer[k];
+			if (razmer[k] > 100)
+				cout << "Chislo bolshe 100, davaite esche raz: ";
+		} while (razmer[k] > 100);
+	}
+
+		for (i = 0; i < razmer[0]; i++)
+		{
+			for (j = 0; j < razmer[0]; j++)
+			{
+				cout << "vvedite element massiva 1 pod nomerom [" << i << "][" << j << "] ";
+				cin >> x[i][j];
+			}
+			cout << "\n";
+		}
+
+		for (i = 0; i < razmer[1]; i++)
+		{
+			for (j = 0; j < razmer[1]; j++)
+			{
+				cout << "vvedite element massiva 2 pod nomerom [" << i << "][" << j << "] ";
+				cin >> y[i][j];
+			}
+			cout << "\n";
+		}
+
+		for (i = 0; i < razmer[2]; i++)
+		{
+			for (j = 0; j < razmer[2]; j++)
+			{
+				cout << "vvedite element massiva 3 pod nomerom [" << i << "][" << j << "] ";
+				cin >> z[i][j];
+			}
+			cout << "\n";
+		}
+
+		cout << elementy_pod_diag(z, razmer[2]);
