@@ -66,4 +66,4 @@ int main()
 			cout << "\n";
 		}
 
-		cout << elementy_pod_diag(z, razmer[2]);
+		cout << elementy_pod_diag(x, razmer[0]) + elementy_pod_diag(y, razmer[1]) - elementy_pod_diag(z, razmer[2]);
